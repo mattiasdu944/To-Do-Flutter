@@ -8,7 +8,7 @@ class TasksList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView.builder(
-        itemCount: 10,
+        itemCount: 100,
         itemBuilder: (context, index) {
           return (
             const TaskCard()

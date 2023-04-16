@@ -24,6 +24,11 @@ class HomeScreen extends StatelessWidget {
         children: viewRoutes,
       ),
       bottomNavigationBar: CustomNavigationBottomBar(currentIndex: pageIndex),
+      floatingActionButton: FloatingActionButton(onPressed: () {
+        
+      },
+        child: const Icon(Icons.add),
+      ),
     );
   }
 }

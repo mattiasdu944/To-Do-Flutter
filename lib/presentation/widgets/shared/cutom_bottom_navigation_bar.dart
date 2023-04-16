@@ -36,11 +36,11 @@ class CustomNavigationBottomBar extends StatelessWidget {
           label: 'Inicio',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.task),
+          icon: Icon(Icons.check),
           label: 'Completadas',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.task),
+          icon: Icon(Icons.timelapse),
           label: 'Pendientes',
         ),
       ],
