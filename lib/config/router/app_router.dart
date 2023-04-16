@@ -1,30 +1,16 @@
 import 'package:go_router/go_router.dart';
 import 'package:to_do_supabase/presentation/screens/screens.dart';
-import 'package:to_do_supabase/presentation/views/views.dart';
 
 final appRouter = GoRouter(
-  initialLocation: '/',
+  initialLocation: '/home/0', 
   routes: [
-    ShellRoute(
-      builder: (context, state, child) {
-        return HomeScreen(childView: child);
-      },
-      routes: [
-        GoRoute(
-          path: '/',
-          builder: (context, state) => const HomeView(),
-        ),
+    GoRoute(
+        path: '/home/:page',
+        builder: (context, state) {
+          final pageIndex = state.params['page'] ?? '0';
 
-        GoRoute(
-          path: '/tasks_completed',
-          builder: (context, state) => const CompletedTasksView(),
-        ),
-
-        GoRoute(
-          path: '/tasks_pending',
-          builder: (context, state) => const PendingTasksView(),
-        ),
-      ]
-    )
+          return HomeScreen( pageIndex: int.parse(pageIndex) );
+        },
+    ),
   ]
 );

@@ -1,49 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class CustomBottomNavigationBar extends StatefulWidget {
-  const CustomBottomNavigationBar({super.key});
+class CustomNavigationBottomBar extends StatelessWidget {
+  final int currentIndex;
 
-  @override
-  State<CustomBottomNavigationBar> createState() =>
-      _CustomBottomNavigationBarState();
-}
+  const CustomNavigationBottomBar({super.key, required this.currentIndex});
 
-class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
-  
-  
-  int getCurrentIndex( BuildContext context ) {
-    final String location = GoRouterState.of(context).location;
-
-    switch(location) {
-      case "/":
-        return  0;
-
-      case "/tasks_completed":
-        return  1;
-
-      case "/tasks_pending":
-        return  2;
-
-
-      default:
-        return 0;
-    }
-
-
-  }  
   void onItemTap(BuildContext context, int index) {
     switch (index) {
       case 0:
-        context.go('/');
+        context.go('/home/0');
         break;
 
       case 1:
-        context.go('/tasks_completed');
+        context.go('/home/1');
         break;
 
       case 2:
-        context.go('/tasks_pending');
+        context.go('/home/2');
         break;
     }
   }
@@ -51,13 +25,11 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      currentIndex: getCurrentIndex(context),
+      currentIndex: currentIndex,
       onTap: (menuIndex) {
-        setState(() {
-          onItemTap(context, menuIndex);
-        });
+        onItemTap(context, menuIndex);
       },
-      elevation: 2,
+      elevation: 0,
       items: const [
         BottomNavigationBarItem(
           icon: Icon(Icons.home),
